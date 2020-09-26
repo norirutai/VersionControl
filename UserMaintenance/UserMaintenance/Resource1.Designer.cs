@@ -77,5 +77,14 @@ namespace UserMaintenance {
                 return ResourceManager.GetString("FirstName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fájlbaírás.
+        /// </summary>
+        internal static string Text {
+            get {
+                return ResourceManager.GetString("Text", resourceCulture);
+            }
+        }
     }
 }
