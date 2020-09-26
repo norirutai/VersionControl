@@ -17,19 +17,27 @@ namespace UserMaintenance
         public Form1()
         {
             InitializeComponent();
-            label1.Text = Resource1.LastName;
+           
             label2.Text = Resource1.FirstName;
             button1.Text = Resource1.Add;
             listBox1.DataSource = users;
-            listBox1.ValueMember = "ID";
+            listBox1.ValueMember = "ID_";
             listBox1.DisplayMember = "Fullname";
             var u = new User()
             {
-                LastName = textBox1.Text,
-                FirstName = textBox2.Text
+                FullName = textBox1.Text,
+                
             };
             users.Add(u);
+            button2.Text = Resource1.Text;
+
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.ShowDialog();
+
+        }
     }
 }
