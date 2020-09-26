@@ -77,14 +77,5 @@ namespace UserMaintenance {
                 return ResourceManager.GetString("FirstName", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Keresztnév.
-        /// </summary>
-        internal static string LastName {
-            get {
-                return ResourceManager.GetString("LastName", resourceCulture);
-            }
-        }
     }
 }
