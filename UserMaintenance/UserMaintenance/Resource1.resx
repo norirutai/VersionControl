@@ -126,4 +126,7 @@
   <data name="Text" xml:space="preserve">
     <value>Fájlbaírás</value>
   </data>
+  <data name="Text2" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
 </root>

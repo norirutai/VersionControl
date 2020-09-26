@@ -25,6 +25,7 @@ namespace UserMaintenance
             listBox1.DisplayMember = "Fullname";
             
             button2.Text = Resource1.Text;
+            button3.Text = Resource1.Text2;
 
         }
 
@@ -43,6 +44,13 @@ namespace UserMaintenance
 
             };
             users.Add(u);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var t = new User()
+            { FullName = (string)listBox1.SelectedItem };
+            users.Remove(t);
         }
     }
 }
