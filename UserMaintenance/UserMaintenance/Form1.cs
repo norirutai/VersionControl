@@ -23,12 +23,7 @@ namespace UserMaintenance
             listBox1.DataSource = users;
             listBox1.ValueMember = "ID_";
             listBox1.DisplayMember = "Fullname";
-            var u = new User()
-            {
-                FullName = textBox1.Text,
-                
-            };
-            users.Add(u);
+            
             button2.Text = Resource1.Text;
 
         }
@@ -38,6 +33,16 @@ namespace UserMaintenance
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.ShowDialog();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var u = new User()
+            {
+                FullName = textBox2.Text,
+
+            };
+            users.Add(u);
         }
     }
 }

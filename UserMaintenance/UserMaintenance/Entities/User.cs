@@ -13,8 +13,6 @@ namespace UserMaintenance.Entities
         public string FullName
         {
             get; set;
-            
-
         }
     }
 }
