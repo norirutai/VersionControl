@@ -120,7 +120,7 @@ namespace week4
             mainRange.Font.Bold = true;
             mainRange.Interior.Color = Color.LightYellow;
             int lastRowID = xlSheet.UsedRange.Rows.Count;
-            Excel.Range lastRange = xlSheet.get_Range(GetCell(lastRowID, 1), GetCell(lastRowID, headers.Length));
+            Excel.Range lastRange = xlSheet.get_Range(GetCell(1, headers.Length), GetCell(lastRowID, headers.Length));
             lastRange.Interior.Color = Color.LightGreen;
         }
 
