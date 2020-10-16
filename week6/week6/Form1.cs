@@ -7,18 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using week6.Entities;
 using week6.MnbServiceReference;
 
 namespace week6
 {
     public partial class Form1 : Form
     {
+        BindingList<RateData> Rates = new BindingList();
+        
 
         public Form1()
         {
             InitializeComponent();
-            
-            
+            dataGridView1.DataSource = Rates;
+
+
 
         }
         void GetExchangeRates()
@@ -33,6 +37,7 @@ namespace week6
             var repose = mnbService.GetExchangeRates(request);
             var result = repose.GetExchangeRatesResult;
         }
+        
     }
         
 }
