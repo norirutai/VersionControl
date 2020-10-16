@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using week6.Entities;
 using week6.MnbServiceReference;
 
@@ -14,18 +15,17 @@ namespace week6
 {
     public partial class Form1 : Form
     {
-        BindingList<RateData> Rates = new BindingList();
+        BindingList<RateData> Rates = new BindingList<RateData>();
         
 
         public Form1()
         {
             InitializeComponent();
             dataGridView1.DataSource = Rates;
-
-
-
+            GetExchangeRates();
+            Függvény();
         }
-        void GetExchangeRates()
+        public void GetExchangeRates()
         {
             var mnbService = new MNBArfolyamServiceSoapClient();
             var request = new GetExchangeRatesRequestBody()
@@ -36,6 +36,12 @@ namespace week6
             };
             var repose = mnbService.GetExchangeRates(request);
             var result = repose.GetExchangeRatesResult;
+        }
+        void Függvény()
+        {
+            var xml = new XmlDocument();
+            //xml.LoadXml(result);
+
         }
         
     }
