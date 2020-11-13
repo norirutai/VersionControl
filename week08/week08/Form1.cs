@@ -27,32 +27,33 @@ namespace week08
         public Form1()
         {
             InitializeComponent();
-            Factory = new BallFactory();
+            Factory = new Carfactory();
         }
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
-            var ball = Factory.CreateNew();
-            _toys.Add(ball);
-            ball.Left = -ball.Width;
-            mainPanel.Controls.Add(ball);
+            var toy = Factory.CreateNew();
+            _toys.Add(toy);
+            toy.Left = -toy.Width;
+            mainPanel.Controls.Add(toy);
+            toy.Top = button1.Top + 200;
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
         {
             var maxPosition = 0;
-            foreach (var ball in _toys)
+            foreach (var toy in _toys)
             {
-                ball.MoveToy();
-                if (ball.Left >maxPosition)
+                toy.MoveToy();
+                if (toy.Left >maxPosition)
                 {
-                    maxPosition = ball.Left;
+                    maxPosition = toy.Left;
                 }
                 if (maxPosition>1000)
                 {
-                    var oldestBall = _toys[0];
-                    mainPanel.Controls.Remove(oldestBall);
-                    _toys.Remove(oldestBall);
+                    var oldestToy = _toys[0];
+                    mainPanel.Controls.Remove(oldestToy);
+                    _toys.Remove(oldestToy);
                 }
             }
         }
@@ -79,7 +80,36 @@ namespace week08
             Controls.Add(_nextToy);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var colorpicker = new ColorDialog();
+            colorpicker.Color = button.BackColor;
+            if (colorpicker.ShowDialog() != DialogResult.OK)
+                return;
+            button.BackColor = colorpicker.Color;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory()
+            {
+                BoxColor = button5.BackColor,
+                RibbonColor = button6.BackColor
+            };
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var colorpicker = new ColorDialog();
+            colorpicker.Color = button.BackColor;
+            if (colorpicker.ShowDialog() != DialogResult.OK)
+                return;
+            button.BackColor = colorpicker.Color;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
         {
             var button = (Button)sender;
             var colorpicker = new ColorDialog();

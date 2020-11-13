@@ -19,7 +19,7 @@ namespace week08.Entities
         }
         protected override void DrawImage(Graphics g)
         {
-            throw new NotImplementedException();
+            g.FillEllipse(BallColor, 0, 0, Width, Height);
         }
     }
 }
