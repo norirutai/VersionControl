@@ -10,7 +10,7 @@ namespace week08.Entities
     {
         public Ball CreateNew()
         {
-            return new Ball;
+            return new Ball();
         }
     }
 }
